@@ -13,10 +13,6 @@ import socket
 import sys, getopt, argparse
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
-try:
-    from raven import Client
-except:
-    pass
 
 def main():
     parser = argparse.ArgumentParser(description='This script connect to cloudstack API, list all vms with details and add  document for each VM in a given ES cluster index')
@@ -26,7 +22,12 @@ def main():
     parser.add_argument('-acssecret', help='Cloudstack API user secret', required=True, type=str, dest='acssecret')
     parser.add_argument('-esindex', help='ES index name', required=True, type=str, dest='esindex')
     parser.add_argument('-esnodes', help='ES nodes list space separated', required=True, type=str, dest='esnodes')
-    parser.add_argument('-sentryapikey', help='Sentry API key', required=False, type=str, dest='sentryapikey')
+    try:
+        from raven import Client
+    except ImportError:
+        pass
+    else:
+        parser.add_argument('-sentryapikey', help='Sentry API key', required=False, type=str, dest='sentryapikey')
     args = vars(parser.parse_args())
     return args
 
