@@ -103,7 +103,7 @@ def get_stats(args):
     except:
         pass
 
-    DOCTYPE = 'acs-vm-reporting'    
+    DOCTYPE = 'acs-instancereport'    
 
     now = time.strftime("%Y.%m.%d")
     esindex = esindex + '-' + now
@@ -281,8 +281,8 @@ def get_stats(args):
                 '@fields.securitygroupid': vmsecuritygroupid,
                 '@fields.securitygroupname': vmsecuritygroupname,
                 '@source_host': sourcehost,
-                '@type': 'Cloudstack-vm-reporting',
-                '@message': 'CS instance report for vm %s' % vmname,
+                '@type': 'ACS-instancereport',
+                '@message': 'ACS instance report for vm %s' % vmname,
                 '@timestamp': timestamp
             }
             records.append(doc)
