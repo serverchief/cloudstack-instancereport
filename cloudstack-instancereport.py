@@ -214,6 +214,12 @@ def get_stats(args):
                         '@source_host': {
                             'type': 'string'
                             },
+                        '@source': {
+                            'type': 'string'
+                            },
+                        '@source_path': {
+                            'type': 'string'
+                            },
                         '@type': {
                             'type': 'string'
                             },
