@@ -147,68 +147,68 @@ def get_stats(args):
             body={
                 DOCTYPE: {
                     'properties': {
-                        '@fields.account': {
+                        'fields.account': {
                             'type': 'string'
                             },
-                        '@fields.id': {
+                        'fields.id': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.state': {
+                        'fields.state': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.cpunumber': {
+                        'fields.cpunumber': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.displayname': {
+                        'fields.displayname': {
                             'type': 'string'
                             },
-                        '@fields.hostname': {
+                        'fields.hostname': {
                             'type': 'string'
                             },
-                        '@fields.instancename': {
+                        'fields.instancename': {
                             'type': 'string'
                             },
-                        '@fields.memory': {
+                        'fields.memory': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.name': {
+                        'fields.name': {
                             'type': 'string'
                             },
-                        '@fields.serviceofferingid': {
+                        'fields.serviceofferingid': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.serviceofferingname': {
+                        'fields.serviceofferingname': {
                             'type': 'string'
                             },
-                        '@fields.templateid': {
+                        'fields.templateid': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.templatedisplaytext': {
+                        'fields.templatedisplaytext': {
                             'type': 'string'
                             },
-                        '@fields.zoneid': {
+                        'fields.zoneid': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.ipaddress': {
+                        'fields.ipaddress': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.macaddress': {
+                        'fields.macaddress': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.securitygroupid': {
+                        'fields.securitygroupid': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        '@fields.securitygroupname': {
+                        'fields.securitygroupname': {
                             'type': 'string'
                             },
                         '@source_host': {
@@ -261,25 +261,25 @@ def get_stats(args):
             sourcehost = socket.gethostname()
             #body
             doc = {
-                '@fields.account': vmaccount,
-                '@fields.id': vmid,
-                '@fields.state': vmstate,
-                '@fields.cpunumber': vmcpunumber,
-                '@fields.displayname': vmdisplayname,
-                '@fields.hostname': vmhostname,
-                '@fields.instancename': vminstancename,
-                '@fields.memory': vmmemory,
-                '@fields.name': vmname,
-                '@fields.serviceofferingid': vmserviceofferingid,
-                '@fields.serviceofferingname': vmserviceofferingname,
-                '@fields.templateid': vmtemplateid,
-                '@fields.templatedisplaytext': vmtemplatedisplaytext,
-                '@fields.zoneid': vmzoneid,
-                '@fields.zonename': vmzonename,
-                '@fields.ipaddress': vmipaddress,
-                '@fields.macaddress': vmmacaddress,
-                '@fields.securitygroupid': vmsecuritygroupid,
-                '@fields.securitygroupname': vmsecuritygroupname,
+                'fields.account': vmaccount,
+                'fields.id': vmid,
+                'fields.state': vmstate,
+                'fields.cpunumber': vmcpunumber,
+                'fields.displayname': vmdisplayname,
+                'fields.hostname': vmhostname,
+                'fields.instancename': vminstancename,
+                'fields.memory': vmmemory,
+                'fields.name': vmname,
+                'fields.serviceofferingid': vmserviceofferingid,
+                'fields.serviceofferingname': vmserviceofferingname,
+                'fields.templateid': vmtemplateid,
+                'fields.templatedisplaytext': vmtemplatedisplaytext,
+                'fields.zoneid': vmzoneid,
+                'fields.zonename': vmzonename,
+                'fields.ipaddress': vmipaddress,
+                'fields.macaddress': vmmacaddress,
+                'fields.securitygroupid': vmsecuritygroupid,
+                'fields.securitygroupname': vmsecuritygroupname,
                 '@source_host': sourcehost,
                 '@type': 'ACS-instancereport',
                 '@message': 'ACS instance report for vm %s' % vmname,
