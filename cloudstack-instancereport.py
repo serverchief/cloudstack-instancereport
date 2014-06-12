@@ -150,68 +150,68 @@ def get_stats(args):
             body={
                 DOCTYPE: {
                     'properties': {
-                        'fields.account': {
+                        'account': {
                             'type': 'string'
                             },
-                        'fields.id': {
+                        'id': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.state': {
+                        'state': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.cpunumber': {
+                        'cpunumber': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.displayname': {
+                        'displayname': {
                             'type': 'string'
                             },
-                        'fields.hostname': {
+                        'hostname': {
                             'type': 'string'
                             },
-                        'fields.instancename': {
+                        'instancename': {
                             'type': 'string'
                             },
-                        'fields.memory': {
+                        'memory': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.name': {
+                        'name': {
                             'type': 'string'
                             },
-                        'fields.serviceofferingid': {
+                        'serviceofferingid': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.serviceofferingname': {
+                        'serviceofferingname': {
                             'type': 'string'
                             },
-                        'fields.templateid': {
+                        'templateid': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.templatedisplaytext': {
+                        'templatedisplaytext': {
                             'type': 'string'
                             },
-                        'fields.zoneid': {
+                        'zoneid': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.ipaddress': {
+                        'ipaddress': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.macaddress': {
+                        'macaddress': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.securitygroupid': {
+                        'securitygroupid': {
                             'type': 'string',
                             'index': 'not_analyzed'
                             },
-                        'fields.securitygroupname': {
+                        'securitygroupname': {
                             'type': 'string'
                             },
                         '@source_host': {
@@ -270,30 +270,30 @@ def get_stats(args):
             sourcehost = socket.gethostname()
             #body
             doc = {
-                'fields.account': vmaccount,
-                'fields.id': vmid,
-                'fields.state': vmstate,
-                'fields.cpunumber': vmcpunumber,
-                'fields.displayname': vmdisplayname,
-                'fields.hostname': vmhostname,
-                'fields.instancename': vminstancename,
-                'fields.memory': vmmemory,
-                'fields.name': vmname,
-                'fields.serviceofferingid': vmserviceofferingid,
-                'fields.serviceofferingname': vmserviceofferingname,
-                'fields.templateid': vmtemplateid,
-                'fields.templatedisplaytext': vmtemplatedisplaytext,
-                'fields.zoneid': vmzoneid,
-                'fields.zonename': vmzonename,
-                'fields.ipaddress': vmipaddress,
-                'fields.macaddress': vmmacaddress,
-                'fields.securitygroupid': vmsecuritygroupid,
-                'fields.securitygroupname': vmsecuritygroupname,
+                'account': vmaccount,
+                'id': vmid,
+                'state': vmstate,
+                'cpunumber': vmcpunumber,
+                'displayname': vmdisplayname,
+                'hostname': vmhostname,
+                'instancename': vminstancename,
+                'memory': vmmemory,
+                'name': vmname,
+                'serviceofferingid': vmserviceofferingid,
+                'serviceofferingname': vmserviceofferingname,
+                'templateid': vmtemplateid,
+                'templatedisplaytext': vmtemplatedisplaytext,
+                'zoneid': vmzoneid,
+                'zonename': vmzonename,
+                'ipaddress': vmipaddress,
+                'macaddress': vmmacaddress,
+                'securitygroupid': vmsecuritygroupid,
+                'securitygroupname': vmsecuritygroupname,
                 '@source_host': sourcehost,
                 '@source_path': scriptpath,
                 '@source': scriptpath,
                 '@type': 'ACS-instancereport',
-                '@message': 'ACS instance report for vm %s' % vmname,
+                '@message': 'ACS instance report for vm %s' % vmid,
                 '@timestamp': timestamp
             }
             records.append(doc)
