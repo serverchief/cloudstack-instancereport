@@ -244,7 +244,10 @@ def get_stats(args):
             vmid = virtualmachine['id']
             vmstate = virtualmachine['state']
             vmcpunumber = virtualmachine['cpunumber']
-            vmdisplayname = virtualmachine['displayname']
+            if 'displayname' in virtualmachine:
+                vmdisplayname = virtualmachine['displayname']
+            else:
+                vmdisplayname = ''
             if virtualmachine['state'] == 'Running':
                 vmhostname = virtualmachine['hostname']
             else:
