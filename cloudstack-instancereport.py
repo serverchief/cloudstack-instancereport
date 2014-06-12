@@ -10,6 +10,7 @@ import re
 import datetime
 import time
 import socket
+import os
 import sys, getopt, argparse
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import bulk
@@ -138,6 +139,7 @@ def get_stats(args):
 
     ESCLUSTERNODES = esnodes.split()
     es = Elasticsearch(ESCLUSTERNODES)
+    scriptpath = os.path.realpath(__file__)
     
     timestamp = datetime.datetime.now()
     #create ES mappings
@@ -281,6 +283,8 @@ def get_stats(args):
                 'fields.securitygroupid': vmsecuritygroupid,
                 'fields.securitygroupname': vmsecuritygroupname,
                 '@source_host': sourcehost,
+                '@source_path': scriptpath,
+                '@source': scriptpath,
                 '@type': 'ACS-instancereport',
                 '@message': 'ACS instance report for vm %s' % vmname,
                 '@timestamp': timestamp
