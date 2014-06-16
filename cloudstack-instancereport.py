@@ -143,6 +143,8 @@ def get_stats(args):
     scriptpath = os.path.realpath(__file__)
     
     timestamp = datetime.datetime.now()
+    #create index and ignore if already exists
+    es.indices.create(index=esindex, ignore=400)
     #create ES mappings
     es.indices.put_mapping(
         index=esindex,
