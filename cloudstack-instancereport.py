@@ -144,98 +144,101 @@ def get_stats(args):
     
     timestamp = datetime.datetime.now()
     #create ES mappings
-    es.indices.put_mapping(
-        index=esindex,
-        doc_type=DOCTYPE,
-            body={
-                DOCTYPE: {
-                    'properties': {
-                        'account': {
-                            'type': 'string'
-                            },
-                        'id': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'state': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'cpunumber': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'displayname': {
-                            'type': 'string'
-                            },
-                        'hostname': {
-                            'type': 'string'
-                            },
-                        'instancename': {
-                            'type': 'string'
-                            },
-                        'memory': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'name': {
-                            'type': 'string'
-                            },
-                        'serviceofferingid': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'serviceofferingname': {
-                            'type': 'string'
-                            },
-                        'templateid': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'templatedisplaytext': {
-                            'type': 'string'
-                            },
-                        'zoneid': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'ipaddress': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'macaddress': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'securitygroupid': {
-                            'type': 'string',
-                            'index': 'not_analyzed'
-                            },
-                        'securitygroupname': {
-                            'type': 'string'
-                            },
-                        '@source_host': {
-                            'type': 'string'
-                            },
-                        '@source': {
-                            'type': 'string'
-                            },
-                        '@source_path': {
-                            'type': 'string'
-                            },
-                        '@type': {
-                            'type': 'string'
-                            },
-                        '@message': {
-                            'type': 'string'
-                            },
-                        '@timestamp': {
-                            'type': 'date'
-                            }
+    try:
+        es.indices.put_mapping(
+            index=esindex,
+            doc_type=DOCTYPE,
+                body={
+                    DOCTYPE: {
+                        'properties': {
+                            'account': {
+                                'type': 'string'
+                                },
+                            'id': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'state': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'cpunumber': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'displayname': {
+                                'type': 'string'
+                                },
+                            'hostname': {
+                                'type': 'string'
+                                },
+                            'instancename': {
+                                'type': 'string'
+                                },
+                            'memory': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'name': {
+                                'type': 'string'
+                                },
+                            'serviceofferingid': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'serviceofferingname': {
+                                'type': 'string'
+                                },
+                            'templateid': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'templatedisplaytext': {
+                                'type': 'string'
+                                },
+                            'zoneid': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'ipaddress': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'macaddress': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'securitygroupid': {
+                                'type': 'string',
+                                'index': 'not_analyzed'
+                                },
+                            'securitygroupname': {
+                                'type': 'string'
+                                },
+                            '@source_host': {
+                                'type': 'string'
+                                },
+                            '@source': {
+                                'type': 'string'
+                                },
+                            '@source_path': {
+                                'type': 'string'
+                                },
+                            '@type': {
+                                'type': 'string'
+                                },
+                            '@message': {
+                                'type': 'string'
+                                },
+                            '@timestamp': {
+                                'type': 'date'
+                                }
+                        }
                     }
                 }
-            }
-    )  
+        )
+    except IndexMissingException:
+        es.indices.create(index=esindex)
     #create ES document
     if virtualmachines:
         records = []
