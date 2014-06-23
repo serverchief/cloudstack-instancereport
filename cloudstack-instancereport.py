@@ -309,7 +309,7 @@ if __name__ == "__main__":
     try:
         get_stats(args)
     except Exception:
-        if args['sentryapikey'] == 'None':
+        if args['sentryapikey'] is None:
             raise
         else:
             client = Client(dsn=args['sentryapikey'])
